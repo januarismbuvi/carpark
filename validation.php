@@ -6,11 +6,11 @@ $response='{
 }';
 //DATA
 $mpesaResponse=file_get_contents('php://input');//text file
-$logFile="validationResponse.txt";
+$logFile="M_PESAResponse.txt";
 $jsonMpesaResponse=json_decode($mpesaResponse,true);
 //write to file
 $log=fopen($logFile, "a");
-fwrite($log, $mpesaResponse);//write mpesa response not decoded string
+fwrite($log, $jsonMpesaResponse);//write mpesa response not decoded string
 fclose($log);
 echo $response;
 ?>

@@ -17,19 +17,17 @@ $access_token=$result->access_token;
 echo $access_token;
 
 
-//start of register url
 
-/*    */
-$url='https://sandbox.safaricom.co.ke/mpesa/c2b/v1/registerurl'; 
+$url='https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials';
 $curl=curl_init();
 curl_setopt($curl, CURLOPT_URL, $url);
-curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:appliaction/json','Authorization:Bearer '.$access_token));
+curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:appliaction/json','Authorization:Bearer $access_token'));
 $cur_post_data=array(
 	
 'ShortCode'=>'',
 'ResponseType'=>'',//cornfirmed
-'CornfirmationURL'=>'https://cptmsproject.epizy.com/mpesa/Cornfirmation-url.php',//web url for confirmation_url.php
-'ValidationURL'=>'https://cptmsproject.epizy.com/mpesa/validation-url.php'//for validation.php
+'CornfirmationURL'=>'https://cptmsproject1.000webhostapp.com/mpesa/Cornfirmation-url.php',//web url for confirmation_url.php
+'ValidationURL'=>'cptmsproject1.000webhostapp.com/mpesa/validation-url.php'//for validation.php
 );
 $data_string=json_encode($curl_post_data);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
